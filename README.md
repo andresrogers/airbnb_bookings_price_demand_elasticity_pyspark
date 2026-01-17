@@ -62,8 +62,8 @@ Create & activate venv:
 ```bash
 python -m venv venv
 .\venv\Scripts\activate
-Install PyTorch wheel first (choose one):
 ```
+Install PyTorch wheel first (choose one):
 
 CUDA 12.4:
 
@@ -99,3 +99,4 @@ Reporting artifacts (CSVs/PNGs/JSON) are written to `outputs/`.
 Notebooks are designed to save “report-ready” outputs (tables/figures) to disk so results can be reviewed without rerunning full Spark jobs.
 
 For consistent results, keep the same Python/Spark versions (Python 3.10.11, PySpark 3.5.0).
+
