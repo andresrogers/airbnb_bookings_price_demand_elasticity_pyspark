@@ -1,0 +1,109 @@
+{
+  "model_type": "TensorFlow_Keras_MLP",
+  "framework_version": "2.19.1",
+  "model_architecture": {
+    "input_dim": 48,
+    "layers": [
+      128,
+      64,
+      32,
+      1
+    ],
+    "activation": "relu",
+    "dropout_rates": [
+      0.3,
+      0.3,
+      0.2
+    ],
+    "kernel_initializer": "he_normal",
+    "output_activation": null
+  },
+  "feature_cols": [
+    "listing_price_scaled",
+    "person_capacity_scaled",
+    "cleanliness_rating_scaled",
+    "guest_satisfaction_overall_scaled",
+    "bedrooms_scaled",
+    "city_center_dist_scaled",
+    "metro_dist_scaled",
+    "log_price_scaled",
+    "price_per_person_scaled",
+    "price_per_bedroom_scaled",
+    "quality_score_scaled",
+    "price_x_satisfaction_scaled",
+    "price_per_dist_km_scaled",
+    "log_metro_dist_scaled",
+    "segment_avg_price_scaled",
+    "segment_median_price_scaled",
+    "segment_p90_price_scaled",
+    "segment_p10_price_scaled",
+    "segment_price_std_scaled",
+    "segment_price_spread_scaled",
+    "price_vs_segment_median_scaled",
+    "price_vs_segment_avg_scaled",
+    "relative_price_volatility_scaled",
+    "elasticity_slope_scaled",
+    "host_is_superhost",
+    "multi",
+    "biz",
+    "cat_room_type_entire_home_apt",
+    "cat_room_type_private_room",
+    "cat_room_type_shared_room",
+    "cat_city_amsterdam",
+    "cat_city_athens",
+    "cat_city_barcelona",
+    "cat_city_berlin",
+    "cat_city_budapest",
+    "cat_city_lisbon",
+    "cat_city_london",
+    "cat_city_paris",
+    "cat_city_rome",
+    "cat_city_vienna",
+    "is_weekend",
+    "cat_capacity_bin_2",
+    "cat_capacity_bin_3",
+    "cat_capacity_bin_4",
+    "cat_capacity_bin_5",
+    "cat_season_high",
+    "cat_season_low",
+    "cat_season_shoulder"
+  ],
+  "target_col": "occupancy_rate",
+  "num_features": 48,
+  "metrics": {
+    "model": "TensorFlow_Keras_MLP",
+    "rmse": 0.09971794486045837,
+    "mae": 0.08112113177776337,
+    "r2": 0.8149878680706024
+  },
+  "hyperparameters": {
+    "batch_size": 512,
+    "max_epochs": 200,
+    "patience": 15,
+    "num_chunks": 5,
+    "learning_rate": 0.001,
+    "optimizer": "Adam",
+    "clipnorm": 1.0,
+    "lr_reduction_factor": 0.5,
+    "lr_reduction_patience": 5
+  },
+  "preprocessing": {
+    "numeric_features_scaled": true,
+    "target_transform": "log1p",
+    "missing_value_strategy": "fill_zero",
+    "prediction_clipping": [
+      -10,
+      10
+    ],
+    "output_clipping": [
+      0,
+      1000000.0
+    ]
+  },
+  "training_info": {
+    "train_samples": 244392,
+    "val_samples": 60860,
+    "target_is_log": false,
+    "device": "CPU"
+  }
+}
