@@ -1,0 +1,1262 @@
+{
+  "amsterdam_high_season_weekday": {
+    "n_bins": 20,
+    "regimes": [
+      {
+        "name": "highly_inelastic",
+        "slope": -0.007320642551279226,
+        "r_squared": 0.011424430364282114,
+        "price_range": "lower",
+        "n_points": 8
+      },
+      {
+        "name": "inelastic",
+        "slope": -0.7856374651354637,
+        "r_squared": 0.9842629975116015,
+        "price_range": "upper",
+        "n_points": 12
+      }
+    ],
+    "breakpoint_log_price": 4.48518850895769,
+    "breakpoint_price_approx": 88.69366878822404
+  },
+  "amsterdam_high_season_weekend": {
+    "n_bins": 20,
+    "regimes": [
+      {
+        "name": "highly_inelastic",
+        "slope": 0.030746887814057097,
+        "r_squared": 0.39172596337570587,
+        "price_range": "lower",
+        "n_points": 8
+      },
+      {
+        "name": "inelastic",
+        "slope": -0.6990657024682313,
+        "r_squared": 0.9562383742153588,
+        "price_range": "upper",
+        "n_points": 12
+      }
+    ],
+    "breakpoint_log_price": 4.649882333960292,
+    "breakpoint_price_approx": 104.57268020002512
+  },
+  "amsterdam_shoulder_season_weekday": {
+    "n_bins": 20,
+    "regimes": [
+      {
+        "name": "highly_inelastic",
+        "slope": -0.12711808432997146,
+        "r_squared": 0.5693257786350242,
+        "price_range": "lower",
+        "n_points": 7
+      },
+      {
+        "name": "inelastic",
+        "slope": -0.946408561511574,
+        "r_squared": 0.9893575173034954,
+        "price_range": "upper",
+        "n_points": 13
+      }
+    ],
+    "breakpoint_log_price": 4.140976402955433,
+    "breakpoint_price_approx": 62.86417225635477
+  },
+  "amsterdam_shoulder_season_weekend": {
+    "n_bins": 20,
+    "regimes": [
+      {
+        "name": "highly_inelastic",
+        "slope": -0.08075426933741181,
+        "r_squared": 0.6918919183696174,
+        "price_range": "lower",
+        "n_points": 8
+      },
+      {
+        "name": "inelastic",
+        "slope": -0.8656344284921719,
+        "r_squared": 0.9873233201202783,
+        "price_range": "upper",
+        "n_points": 12
+      }
+    ],
+    "breakpoint_log_price": 4.44734109136212,
+    "breakpoint_price_approx": 85.39957219554424
+  },
+  "amsterdam_low_season_weekday": {
+    "n_bins": 20,
+    "regimes": [
+      {
+        "name": "inelastic",
+        "slope": -0.33022165355818,
+        "r_squared": 0.9473474986407818,
+        "price_range": "lower",
+        "n_points": 8
+      },
+      {
+        "name": "elastic",
+        "slope": -1.106280337264502,
+        "r_squared": 0.9887308456857944,
+        "price_range": "upper",
+        "n_points": 12
+      }
+    ],
+    "breakpoint_log_price": 4.078872232676029,
+    "breakpoint_price_approx": 59.07880511984244
+  },
+  "amsterdam_low_season_weekend": {
+    "n_bins": 20,
+    "regimes": [
+      {
+        "name": "inelastic",
+        "slope": -0.22046984665111466,
+        "r_squared": 0.7093922330582906,
+        "price_range": "lower",
+        "n_points": 8
+      },
+      {
+        "name": "inelastic",
+        "slope": -0.9358058937572825,
+        "r_squared": 0.9815738807627042,
+        "price_range": "upper",
+        "n_points": 12
+      }
+    ],
+    "breakpoint_log_price": 4.246327731741318,
+    "breakpoint_price_approx": 69.84843859323044
+  },
+  "athens_high_season_weekday": {
+    "n_bins": 20,
+    "regimes": [
+      {
+        "name": "inelastic",
+        "slope": -0.20471086988975168,
+        "r_squared": 0.9295761417894287,
+        "price_range": "lower",
+        "n_points": 10
+      },
+      {
+        "name": "inelastic",
+        "slope": -0.8117315382802955,
+        "r_squared": 0.9883472471689587,
+        "price_range": "upper",
+        "n_points": 10
+      }
+    ],
+    "breakpoint_log_price": 4.853710240996343,
+    "breakpoint_price_approx": 128.21521779568474
+  },
+  "athens_high_season_weekend": {
+    "n_bins": 20,
+    "regimes": [
+      {
+        "name": "inelastic",
+        "slope": -0.1785921919544958,
+        "r_squared": 0.8259725066558171,
+        "price_range": "lower",
+        "n_points": 14
+      },
+      {
+        "name": "inelastic",
+        "slope": -0.8106919701174315,
+        "r_squared": 0.9795784188947616,
+        "price_range": "upper",
+        "n_points": 6
+      }
+    ],
+    "breakpoint_log_price": 5.175088154546877,
+    "breakpoint_price_approx": 176.81220038883654
+  },
+  "athens_shoulder_season_weekday": {
+    "n_bins": 20,
+    "regimes": [
+      {
+        "name": "inelastic",
+        "slope": -0.4083794463745104,
+        "r_squared": 0.9858531734547249,
+        "price_range": "lower",
+        "n_points": 11
+      },
+      {
+        "name": "unit_elastic",
+        "slope": -1.0063893545540272,
+        "r_squared": 0.9971255401737068,
+        "price_range": "upper",
+        "n_points": 9
+      }
+    ],
+    "breakpoint_log_price": 4.698222355410726,
+    "breakpoint_price_approx": 109.75189907066532
+  },
+  "athens_shoulder_season_weekend": {
+    "n_bins": 20,
+    "regimes": [
+      {
+        "name": "inelastic",
+        "slope": -0.3147636457380399,
+        "r_squared": 0.9493383309195561,
+        "price_range": "lower",
+        "n_points": 11
+      },
+      {
+        "name": "inelastic",
+        "slope": -0.9456979090185823,
+        "r_squared": 0.9915569837962035,
+        "price_range": "upper",
+        "n_points": 9
+      }
+    ],
+    "breakpoint_log_price": 4.860763017468676,
+    "breakpoint_price_approx": 129.12268739568765
+  },
+  "athens_low_season_weekday": {
+    "n_bins": 20,
+    "regimes": [
+      {
+        "name": "inelastic",
+        "slope": -0.5095902524098884,
+        "r_squared": 0.973626558603697,
+        "price_range": "lower",
+        "n_points": 11
+      },
+      {
+        "name": "elastic",
+        "slope": -1.1443717046708903,
+        "r_squared": 0.9967521793366041,
+        "price_range": "upper",
+        "n_points": 9
+      }
+    ],
+    "breakpoint_log_price": 4.495345816038911,
+    "breakpoint_price_approx": 89.59914845084566
+  },
+  "athens_low_season_weekend": {
+    "n_bins": 20,
+    "regimes": [
+      {
+        "name": "inelastic",
+        "slope": -0.3956551324699705,
+        "r_squared": 0.9520236647078932,
+        "price_range": "lower",
+        "n_points": 10
+      },
+      {
+        "name": "unit_elastic",
+        "slope": -0.9805425889150055,
+        "r_squared": 0.9938331493659328,
+        "price_range": "upper",
+        "n_points": 10
+      }
+    ],
+    "breakpoint_log_price": 4.623692157741475,
+    "breakpoint_price_approx": 101.86945674294944
+  },
+  "barcelona_high_season_weekday": {
+    "n_bins": 20,
+    "regimes": [
+      {
+        "name": "highly_inelastic",
+        "slope": 0.14180982931407202,
+        "r_squared": 0.5998340629039941,
+        "price_range": "lower",
+        "n_points": 3
+      },
+      {
+        "name": "inelastic",
+        "slope": -0.8598121912873016,
+        "r_squared": 0.9849228155660018,
+        "price_range": "upper",
+        "n_points": 17
+      }
+    ],
+    "breakpoint_log_price": 3.9784610157154914,
+    "breakpoint_price_approx": 53.43473569717742
+  },
+  "barcelona_high_season_weekend": {
+    "n_bins": 20,
+    "regimes": [
+      {
+        "name": "positive",
+        "slope": 0.1641301605443232,
+        "r_squared": 0.8147581313293748,
+        "price_range": "lower",
+        "n_points": 10
+      },
+      {
+        "name": "inelastic",
+        "slope": -0.7981563888958444,
+        "r_squared": 0.9956345104402753,
+        "price_range": "upper",
+        "n_points": 10
+      }
+    ],
+    "breakpoint_log_price": 4.299444284642333,
+    "breakpoint_price_approx": 73.65884897024122
+  },
+  "barcelona_shoulder_season_weekday": {
+    "n_bins": 20,
+    "regimes": [
+      {
+        "name": "highly_inelastic",
+        "slope": 0.0758421441326176,
+        "r_squared": 0.1137957996937096,
+        "price_range": "lower",
+        "n_points": 6
+      },
+      {
+        "name": "elastic",
+        "slope": -1.064688134201453,
+        "r_squared": 0.9954934173941268,
+        "price_range": "upper",
+        "n_points": 14
+      }
+    ],
+    "breakpoint_log_price": 3.844200577243893,
+    "breakpoint_price_approx": 46.72131933180964
+  },
+  "barcelona_shoulder_season_weekend": {
+    "n_bins": 20,
+    "regimes": [
+      {
+        "name": "highly_inelastic",
+        "slope": 0.1344608732246826,
+        "r_squared": 0.4853164128886643,
+        "price_range": "lower",
+        "n_points": 4
+      },
+      {
+        "name": "unit_elastic",
+        "slope": -0.9576281157730591,
+        "r_squared": 0.9882692768985427,
+        "price_range": "upper",
+        "n_points": 16
+      }
+    ],
+    "breakpoint_log_price": 3.973134484643811,
+    "breakpoint_price_approx": 53.150870596468735
+  },
+  "barcelona_low_season_weekday": {
+    "n_bins": 20,
+    "regimes": [
+      {
+        "name": "inelastic",
+        "slope": -0.15915339760221797,
+        "r_squared": 0.5738917570137647,
+        "price_range": "lower",
+        "n_points": 6
+      },
+      {
+        "name": "elastic",
+        "slope": -1.1977456135038802,
+        "r_squared": 0.9943930460936765,
+        "price_range": "upper",
+        "n_points": 14
+      }
+    ],
+    "breakpoint_log_price": 3.649009739332902,
+    "breakpoint_price_approx": 38.436584958778866
+  },
+  "barcelona_low_season_weekend": {
+    "n_bins": 20,
+    "regimes": [
+      {
+        "name": "highly_inelastic",
+        "slope": -0.12988591248702497,
+        "r_squared": 0.5150396302938562,
+        "price_range": "lower",
+        "n_points": 10
+      },
+      {
+        "name": "unit_elastic",
+        "slope": -1.0407846113182955,
+        "r_squared": 0.9978384510780864,
+        "price_range": "upper",
+        "n_points": 10
+      }
+    ],
+    "breakpoint_log_price": 3.899796708257598,
+    "breakpoint_price_approx": 49.39240701634408
+  },
+  "berlin_high_season_weekday": {
+    "n_bins": 20,
+    "regimes": [
+      {
+        "name": "inelastic",
+        "slope": -0.19928261154014473,
+        "r_squared": 0.8539232541103571,
+        "price_range": "lower",
+        "n_points": 9
+      },
+      {
+        "name": "inelastic",
+        "slope": -0.8819538800858612,
+        "r_squared": 0.9956876907278431,
+        "price_range": "upper",
+        "n_points": 11
+      }
+    ],
+    "breakpoint_log_price": 3.966979350376612,
+    "breakpoint_price_approx": 52.82472461736282
+  },
+  "berlin_high_season_weekend": {
+    "n_bins": 20,
+    "regimes": [
+      {
+        "name": "highly_inelastic",
+        "slope": -0.10114020355185488,
+        "r_squared": 0.6796378823072599,
+        "price_range": "lower",
+        "n_points": 10
+      },
+      {
+        "name": "inelastic",
+        "slope": -0.7858290895417479,
+        "r_squared": 0.9938751831066867,
+        "price_range": "upper",
+        "n_points": 10
+      }
+    ],
+    "breakpoint_log_price": 4.1798690710904145,
+    "breakpoint_price_approx": 65.35729549436316
+  },
+  "berlin_shoulder_season_weekday": {
+    "n_bins": 20,
+    "regimes": [
+      {
+        "name": "inelastic",
+        "slope": -0.4359140742887929,
+        "r_squared": 0.9792753393106897,
+        "price_range": "lower",
+        "n_points": 10
+      },
+      {
+        "name": "elastic",
+        "slope": -1.0826081878809948,
+        "r_squared": 0.9983686614706507,
+        "price_range": "upper",
+        "n_points": 10
+      }
+    ],
+    "breakpoint_log_price": 3.822975222641373,
+    "breakpoint_price_approx": 45.74009303739241
+  },
+  "berlin_shoulder_season_weekend": {
+    "n_bins": 20,
+    "regimes": [
+      {
+        "name": "inelastic",
+        "slope": -0.2836939893642024,
+        "r_squared": 0.9415702834754639,
+        "price_range": "lower",
+        "n_points": 10
+      },
+      {
+        "name": "unit_elastic",
+        "slope": -0.9518841424097315,
+        "r_squared": 0.993191701799088,
+        "price_range": "upper",
+        "n_points": 10
+      }
+    ],
+    "breakpoint_log_price": 3.978847786052035,
+    "breakpoint_price_approx": 53.45540666508707
+  },
+  "berlin_low_season_weekday": {
+    "n_bins": 20,
+    "regimes": [
+      {
+        "name": "inelastic",
+        "slope": -0.41518146535919337,
+        "r_squared": 0.8712429417299046,
+        "price_range": "lower",
+        "n_points": 8
+      },
+      {
+        "name": "elastic",
+        "slope": -1.1743828658078923,
+        "r_squared": 0.9986964528488587,
+        "price_range": "upper",
+        "n_points": 12
+      }
+    ],
+    "breakpoint_log_price": 3.5162633303879125,
+    "breakpoint_price_approx": 33.65842278405918
+  },
+  "berlin_low_season_weekend": {
+    "n_bins": 20,
+    "regimes": [
+      {
+        "name": "inelastic",
+        "slope": -0.40422065093927145,
+        "r_squared": 0.8466853939478652,
+        "price_range": "lower",
+        "n_points": 10
+      },
+      {
+        "name": "unit_elastic",
+        "slope": -1.0176708862830368,
+        "r_squared": 0.9936091382963331,
+        "price_range": "upper",
+        "n_points": 10
+      }
+    ],
+    "breakpoint_log_price": 3.777794846899593,
+    "breakpoint_price_approx": 43.71952710916718
+  },
+  "budapest_high_season_weekday": {
+    "n_bins": 20,
+    "regimes": [
+      {
+        "name": "inelastic",
+        "slope": -0.22298181292751318,
+        "r_squared": 0.9025897810800713,
+        "price_range": "lower",
+        "n_points": 9
+      },
+      {
+        "name": "inelastic",
+        "slope": -0.795859798619425,
+        "r_squared": 0.9920904516603017,
+        "price_range": "upper",
+        "n_points": 11
+      }
+    ],
+    "breakpoint_log_price": 4.6629050958708875,
+    "breakpoint_price_approx": 105.94341129691362
+  },
+  "budapest_high_season_weekend": {
+    "n_bins": 20,
+    "regimes": [
+      {
+        "name": "highly_inelastic",
+        "slope": -0.14997544095410173,
+        "r_squared": 0.7433694162047748,
+        "price_range": "lower",
+        "n_points": 10
+      },
+      {
+        "name": "inelastic",
+        "slope": -0.6919695824824573,
+        "r_squared": 0.9928892192322432,
+        "price_range": "upper",
+        "n_points": 10
+      }
+    ],
+    "breakpoint_log_price": 4.870434792444583,
+    "breakpoint_price_approx": 130.37759176650638
+  },
+  "budapest_shoulder_season_weekday": {
+    "n_bins": 20,
+    "regimes": [
+      {
+        "name": "inelastic",
+        "slope": -0.44257118795146067,
+        "r_squared": 0.9652229349411724,
+        "price_range": "lower",
+        "n_points": 11
+      },
+      {
+        "name": "unit_elastic",
+        "slope": -1.027056006825728,
+        "r_squared": 0.9932021343919764,
+        "price_range": "upper",
+        "n_points": 9
+      }
+    ],
+    "breakpoint_log_price": 4.5497298346901545,
+    "breakpoint_price_approx": 94.60684537427562
+  },
+  "budapest_shoulder_season_weekend": {
+    "n_bins": 20,
+    "regimes": [
+      {
+        "name": "inelastic",
+        "slope": -0.31321587568551335,
+        "r_squared": 0.9356885390455211,
+        "price_range": "lower",
+        "n_points": 10
+      },
+      {
+        "name": "inelastic",
+        "slope": -0.864597522451488,
+        "r_squared": 0.9914440102398553,
+        "price_range": "upper",
+        "n_points": 10
+      }
+    ],
+    "breakpoint_log_price": 4.669848886450061,
+    "breakpoint_price_approx": 106.68162017599775
+  },
+  "budapest_low_season_weekday": {
+    "n_bins": 20,
+    "regimes": [
+      {
+        "name": "inelastic",
+        "slope": -0.5762624580706975,
+        "r_squared": 0.977722292345563,
+        "price_range": "lower",
+        "n_points": 14
+      },
+      {
+        "name": "elastic",
+        "slope": -1.2201693432675256,
+        "r_squared": 0.9934136542000838,
+        "price_range": "upper",
+        "n_points": 6
+      }
+    ],
+    "breakpoint_log_price": 4.466072138909661,
+    "breakpoint_price_approx": 87.01427093252074
+  },
+  "budapest_low_season_weekend": {
+    "n_bins": 20,
+    "regimes": [
+      {
+        "name": "inelastic",
+        "slope": -0.4950207661713804,
+        "r_squared": 0.9631281353080635,
+        "price_range": "lower",
+        "n_points": 16
+      },
+      {
+        "name": "unit_elastic",
+        "slope": -1.0320493943785944,
+        "r_squared": 0.9705669933459617,
+        "price_range": "upper",
+        "n_points": 4
+      }
+    ],
+    "breakpoint_log_price": 4.719917671527334,
+    "breakpoint_price_approx": 112.15901840701194
+  },
+  "lisbon_high_season_weekday": {
+    "n_bins": 20,
+    "regimes": [
+      {
+        "name": "highly_inelastic",
+        "slope": 0.0644691599901317,
+        "r_squared": 0.6817800097605801,
+        "price_range": "lower",
+        "n_points": 6
+      },
+      {
+        "name": "inelastic",
+        "slope": -0.6314899431787441,
+        "r_squared": 0.963203986328126,
+        "price_range": "upper",
+        "n_points": 14
+      }
+    ],
+    "breakpoint_log_price": 4.358032569431085,
+    "breakpoint_price_approx": 78.10332030350008
+  },
+  "lisbon_high_season_weekend": {
+    "n_bins": 20,
+    "regimes": [
+      {
+        "name": "highly_inelastic",
+        "slope": 0.06989053649538056,
+        "r_squared": 0.6326762278820851,
+        "price_range": "lower",
+        "n_points": 6
+      },
+      {
+        "name": "inelastic",
+        "slope": -0.5062777406087418,
+        "r_squared": 0.9487116942320284,
+        "price_range": "upper",
+        "n_points": 14
+      }
+    ],
+    "breakpoint_log_price": 4.526514080224888,
+    "breakpoint_price_approx": 92.43577510959177
+  },
+  "lisbon_shoulder_season_weekday": {
+    "n_bins": 20,
+    "regimes": [
+      {
+        "name": "highly_inelastic",
+        "slope": -0.08242936257998791,
+        "r_squared": 0.6419806116538275,
+        "price_range": "lower",
+        "n_points": 6
+      },
+      {
+        "name": "inelastic",
+        "slope": -0.8381557516054627,
+        "r_squared": 0.9817595437515622,
+        "price_range": "upper",
+        "n_points": 14
+      }
+    ],
+    "breakpoint_log_price": 4.160043909671527,
+    "breakpoint_price_approx": 64.074336021216
+  },
+  "lisbon_shoulder_season_weekend": {
+    "n_bins": 20,
+    "regimes": [
+      {
+        "name": "highly_inelastic",
+        "slope": 0.013338928798596586,
+        "r_squared": 0.019577180918541052,
+        "price_range": "lower",
+        "n_points": 6
+      },
+      {
+        "name": "inelastic",
+        "slope": -0.7299612446578955,
+        "r_squared": 0.9765475673300217,
+        "price_range": "upper",
+        "n_points": 14
+      }
+    ],
+    "breakpoint_log_price": 4.325682090805596,
+    "breakpoint_price_approx": 75.6170729836126
+  },
+  "lisbon_low_season_weekday": {
+    "n_bins": 20,
+    "regimes": [
+      {
+        "name": "inelastic",
+        "slope": -0.20697013812083453,
+        "r_squared": 0.8255453138188881,
+        "price_range": "lower",
+        "n_points": 6
+      },
+      {
+        "name": "inelastic",
+        "slope": -0.9334455627661877,
+        "r_squared": 0.9833569573667179,
+        "price_range": "upper",
+        "n_points": 14
+      }
+    ],
+    "breakpoint_log_price": 3.959475387695416,
+    "breakpoint_price_approx": 52.42981340778043
+  },
+  "lisbon_low_season_weekend": {
+    "n_bins": 20,
+    "regimes": [
+      {
+        "name": "highly_inelastic",
+        "slope": -0.09168620779226244,
+        "r_squared": 0.2636908978973346,
+        "price_range": "lower",
+        "n_points": 5
+      },
+      {
+        "name": "inelastic",
+        "slope": -0.7284086627779454,
+        "r_squared": 0.9749634876123611,
+        "price_range": "upper",
+        "n_points": 15
+      }
+    ],
+    "breakpoint_log_price": 3.9338105683428966,
+    "breakpoint_price_approx": 51.10133225227504
+  },
+  "london_high_season_weekday": {
+    "n_bins": 20,
+    "regimes": [
+      {
+        "name": "highly_inelastic",
+        "slope": -0.10920335132037606,
+        "r_squared": 0.9680368503705413,
+        "price_range": "lower",
+        "n_points": 9
+      },
+      {
+        "name": "inelastic",
+        "slope": -0.8456471640695179,
+        "r_squared": 0.9955729320045648,
+        "price_range": "upper",
+        "n_points": 11
+      }
+    ],
+    "breakpoint_log_price": 4.310884654070013,
+    "breakpoint_price_approx": 74.50637215949251
+  },
+  "london_high_season_weekend": {
+    "n_bins": 20,
+    "regimes": [
+      {
+        "name": "highly_inelastic",
+        "slope": -0.049428211415214696,
+        "r_squared": 0.8565873315686164,
+        "price_range": "lower",
+        "n_points": 10
+      },
+      {
+        "name": "inelastic",
+        "slope": -0.7325300331046716,
+        "r_squared": 0.9925214578871661,
+        "price_range": "upper",
+        "n_points": 10
+      }
+    ],
+    "breakpoint_log_price": 4.580812080601057,
+    "breakpoint_price_approx": 97.5936159177669
+  },
+  "london_shoulder_season_weekday": {
+    "n_bins": 20,
+    "regimes": [
+      {
+        "name": "inelastic",
+        "slope": -0.3571184577470397,
+        "r_squared": 0.993068882934959,
+        "price_range": "lower",
+        "n_points": 9
+      },
+      {
+        "name": "unit_elastic",
+        "slope": -1.025917668226404,
+        "r_squared": 0.9980524775263223,
+        "price_range": "upper",
+        "n_points": 11
+      }
+    ],
+    "breakpoint_log_price": 4.114055625939403,
+    "breakpoint_price_approx": 61.19439656551187
+  },
+  "london_shoulder_season_weekend": {
+    "n_bins": 20,
+    "regimes": [
+      {
+        "name": "inelastic",
+        "slope": -0.1975407394793086,
+        "r_squared": 0.9518543717194465,
+        "price_range": "lower",
+        "n_points": 9
+      },
+      {
+        "name": "inelastic",
+        "slope": -0.9208201271808518,
+        "r_squared": 0.9971097070617971,
+        "price_range": "upper",
+        "n_points": 11
+      }
+    ],
+    "breakpoint_log_price": 4.279594719474081,
+    "breakpoint_price_approx": 72.21116829583453
+  },
+  "london_low_season_weekday": {
+    "n_bins": 20,
+    "regimes": [
+      {
+        "name": "inelastic",
+        "slope": -0.524327148353455,
+        "r_squared": 0.9862714232072296,
+        "price_range": "lower",
+        "n_points": 9
+      },
+      {
+        "name": "elastic",
+        "slope": -1.1591288201913525,
+        "r_squared": 0.9984159652562554,
+        "price_range": "upper",
+        "n_points": 11
+      }
+    ],
+    "breakpoint_log_price": 3.917671152346709,
+    "breakpoint_price_approx": 50.283206388680426
+  },
+  "london_low_season_weekend": {
+    "n_bins": 20,
+    "regimes": [
+      {
+        "name": "inelastic",
+        "slope": -0.39064421153974727,
+        "r_squared": 0.9911120945350512,
+        "price_range": "lower",
+        "n_points": 9
+      },
+      {
+        "name": "unit_elastic",
+        "slope": -0.9772360347066126,
+        "r_squared": 0.9981480375199593,
+        "price_range": "upper",
+        "n_points": 11
+      }
+    ],
+    "breakpoint_log_price": 4.086366685649354,
+    "breakpoint_price_approx": 59.523231733544186
+  },
+  "paris_high_season_weekday": {
+    "n_bins": 20,
+    "regimes": [
+      {
+        "name": "highly_inelastic",
+        "slope": 0.13782326532595776,
+        "r_squared": 0.9767093749939371,
+        "price_range": "lower",
+        "n_points": 3
+      },
+      {
+        "name": "inelastic",
+        "slope": -0.6226143915707947,
+        "r_squared": 0.9373786453778783,
+        "price_range": "upper",
+        "n_points": 17
+      }
+    ],
+    "breakpoint_log_price": 4.283690760121703,
+    "breakpoint_price_approx": 72.50755476751787
+  },
+  "paris_high_season_weekend": {
+    "n_bins": 20,
+    "regimes": [
+      {
+        "name": "highly_inelastic",
+        "slope": 0.12100331522614005,
+        "r_squared": 0.9909078607800716,
+        "price_range": "lower",
+        "n_points": 3
+      },
+      {
+        "name": "inelastic",
+        "slope": -0.478622638494042,
+        "r_squared": 0.8994514315014239,
+        "price_range": "upper",
+        "n_points": 17
+      }
+    ],
+    "breakpoint_log_price": 4.450061823148774,
+    "breakpoint_price_approx": 85.63223789313949
+  },
+  "paris_shoulder_season_weekday": {
+    "n_bins": 20,
+    "regimes": [
+      {
+        "name": "highly_inelastic",
+        "slope": 0.0320275100247904,
+        "r_squared": 0.06818240273936142,
+        "price_range": "lower",
+        "n_points": 3
+      },
+      {
+        "name": "inelastic",
+        "slope": -0.83495695660677,
+        "r_squared": 0.9673052628950878,
+        "price_range": "upper",
+        "n_points": 17
+      }
+    ],
+    "breakpoint_log_price": 4.085877268138384,
+    "breakpoint_price_approx": 59.49410714924641
+  },
+  "paris_shoulder_season_weekend": {
+    "n_bins": 20,
+    "regimes": [
+      {
+        "name": "highly_inelastic",
+        "slope": 0.10016631741619055,
+        "r_squared": 0.5220988920008232,
+        "price_range": "lower",
+        "n_points": 3
+      },
+      {
+        "name": "inelastic",
+        "slope": -0.7157006214231562,
+        "r_squared": 0.9538713937669611,
+        "price_range": "upper",
+        "n_points": 17
+      }
+    ],
+    "breakpoint_log_price": 4.253722352369522,
+    "breakpoint_price_approx": 70.3668556846894
+  },
+  "paris_low_season_weekday": {
+    "n_bins": 20,
+    "regimes": [
+      {
+        "name": "inelastic",
+        "slope": -0.15602702469794738,
+        "r_squared": 0.9886762788368674,
+        "price_range": "lower",
+        "n_points": 3
+      },
+      {
+        "name": "unit_elastic",
+        "slope": -0.952609758302235,
+        "r_squared": 0.9715022077427127,
+        "price_range": "upper",
+        "n_points": 17
+      }
+    ],
+    "breakpoint_log_price": 3.8883880028970053,
+    "breakpoint_price_approx": 48.83210583053486
+  },
+  "paris_low_season_weekend": {
+    "n_bins": 20,
+    "regimes": [
+      {
+        "name": "highly_inelastic",
+        "slope": 0.04885256048963558,
+        "r_squared": 0.45686517159639495,
+        "price_range": "lower",
+        "n_points": 3
+      },
+      {
+        "name": "inelastic",
+        "slope": -0.8017170202539985,
+        "r_squared": 0.967738164715252,
+        "price_range": "upper",
+        "n_points": 17
+      }
+    ],
+    "breakpoint_log_price": 4.05197275171233,
+    "breakpoint_price_approx": 57.510799738853784
+  },
+  "rome_high_season_weekday": {
+    "n_bins": 20,
+    "regimes": [
+      {
+        "name": "highly_inelastic",
+        "slope": 0.03174450093342614,
+        "r_squared": 0.646528662206788,
+        "price_range": "lower",
+        "n_points": 5
+      },
+      {
+        "name": "inelastic",
+        "slope": -0.5972574500935589,
+        "r_squared": 0.9571034984224266,
+        "price_range": "upper",
+        "n_points": 15
+      }
+    ],
+    "breakpoint_log_price": 4.1285723082944275,
+    "breakpoint_price_approx": 62.08921536851314
+  },
+  "rome_high_season_weekend": {
+    "n_bins": 20,
+    "regimes": [
+      {
+        "name": "highly_inelastic",
+        "slope": 0.14436542794389898,
+        "r_squared": 0.8061658418601209,
+        "price_range": "lower",
+        "n_points": 3
+      },
+      {
+        "name": "inelastic",
+        "slope": -0.4208219316166101,
+        "r_squared": 0.9228568182053399,
+        "price_range": "upper",
+        "n_points": 17
+      }
+    ],
+    "breakpoint_log_price": 4.150447124962902,
+    "breakpoint_price_approx": 63.462369564984414
+  },
+  "rome_shoulder_season_weekday": {
+    "n_bins": 20,
+    "regimes": [
+      {
+        "name": "highly_inelastic",
+        "slope": -0.10612569868191754,
+        "r_squared": 0.737630804208073,
+        "price_range": "lower",
+        "n_points": 4
+      },
+      {
+        "name": "inelastic",
+        "slope": -0.7717771728643266,
+        "r_squared": 0.9818805404591029,
+        "price_range": "upper",
+        "n_points": 16
+      }
+    ],
+    "breakpoint_log_price": 3.8573935046109376,
+    "breakpoint_price_approx": 47.341794244859415
+  },
+  "rome_shoulder_season_weekend": {
+    "n_bins": 20,
+    "regimes": [
+      {
+        "name": "highly_inelastic",
+        "slope": -0.058006637362117364,
+        "r_squared": 0.8918413775446116,
+        "price_range": "lower",
+        "n_points": 6
+      },
+      {
+        "name": "inelastic",
+        "slope": -0.7279301682115895,
+        "r_squared": 0.9789555629010029,
+        "price_range": "upper",
+        "n_points": 14
+      }
+    ],
+    "breakpoint_log_price": 4.204564362634523,
+    "breakpoint_price_approx": 66.9914073483629
+  },
+  "rome_low_season_weekday": {
+    "n_bins": 20,
+    "regimes": [
+      {
+        "name": "inelastic",
+        "slope": -0.2238694162507077,
+        "r_squared": 0.978606147656783,
+        "price_range": "lower",
+        "n_points": 3
+      },
+      {
+        "name": "inelastic",
+        "slope": -0.8593773746087962,
+        "r_squared": 0.9813609778336987,
+        "price_range": "upper",
+        "n_points": 17
+      }
+    ],
+    "breakpoint_log_price": 3.594522345796717,
+    "breakpoint_price_approx": 36.3983100292384
+  },
+  "rome_low_season_weekend": {
+    "n_bins": 20,
+    "regimes": [
+      {
+        "name": "highly_inelastic",
+        "slope": -0.11331294562354306,
+        "r_squared": 0.9644838649852943,
+        "price_range": "lower",
+        "n_points": 5
+      },
+      {
+        "name": "inelastic",
+        "slope": -0.7581974043575277,
+        "r_squared": 0.9839864366849769,
+        "price_range": "upper",
+        "n_points": 15
+      }
+    ],
+    "breakpoint_log_price": 3.8925646533711737,
+    "breakpoint_price_approx": 49.036486985722014
+  },
+  "vienna_high_season_weekday": {
+    "n_bins": 20,
+    "regimes": [
+      {
+        "name": "highly_inelastic",
+        "slope": 0.07656224988250791,
+        "r_squared": 0.9085912163603967,
+        "price_range": "lower",
+        "n_points": 3
+      },
+      {
+        "name": "inelastic",
+        "slope": -0.5531756937708346,
+        "r_squared": 0.9154559477432265,
+        "price_range": "upper",
+        "n_points": 17
+      }
+    ],
+    "breakpoint_log_price": 4.065407151113062,
+    "breakpoint_price_approx": 58.28863597491094
+  },
+  "vienna_high_season_weekend": {
+    "n_bins": 20,
+    "regimes": [
+      {
+        "name": "highly_inelastic",
+        "slope": -0.13382376938280216,
+        "r_squared": 0.8290849536853415,
+        "price_range": "lower",
+        "n_points": 9
+      },
+      {
+        "name": "inelastic",
+        "slope": -0.6492078061872383,
+        "r_squared": 0.989966950632597,
+        "price_range": "upper",
+        "n_points": 11
+      }
+    ],
+    "breakpoint_log_price": 4.8318942889889795,
+    "breakpoint_price_approx": 125.4483711899221
+  },
+  "vienna_shoulder_season_weekday": {
+    "n_bins": 20,
+    "regimes": [
+      {
+        "name": "highly_inelastic",
+        "slope": -0.14728720279664806,
+        "r_squared": 0.9941941041715439,
+        "price_range": "lower",
+        "n_points": 3
+      },
+      {
+        "name": "inelastic",
+        "slope": -0.7425793810196992,
+        "r_squared": 0.9620129119353061,
+        "price_range": "upper",
+        "n_points": 17
+      }
+    ],
+    "breakpoint_log_price": 3.856837094608714,
+    "breakpoint_price_approx": 47.315460123981886
+  },
+  "vienna_shoulder_season_weekend": {
+    "n_bins": 20,
+    "regimes": [
+      {
+        "name": "highly_inelastic",
+        "slope": -0.04032112732393671,
+        "r_squared": 0.42134213419722516,
+        "price_range": "lower",
+        "n_points": 3
+      },
+      {
+        "name": "inelastic",
+        "slope": -0.6609335075252749,
+        "r_squared": 0.9483914672417698,
+        "price_range": "upper",
+        "n_points": 17
+      }
+    ],
+    "breakpoint_log_price": 4.033390466586156,
+    "breakpoint_price_approx": 56.45198571958751
+  },
+  "vienna_low_season_weekday": {
+    "n_bins": 20,
+    "regimes": [
+      {
+        "name": "inelastic",
+        "slope": -0.23019253183181793,
+        "r_squared": 0.9990102622939622,
+        "price_range": "lower",
+        "n_points": 3
+      },
+      {
+        "name": "inelastic",
+        "slope": -0.8363087822658569,
+        "r_squared": 0.9582818993311409,
+        "price_range": "upper",
+        "n_points": 17
+      }
+    ],
+    "breakpoint_log_price": 3.6696106267719086,
+    "breakpoint_price_approx": 39.23662519414515
+  },
+  "vienna_low_season_weekend": {
+    "n_bins": 20,
+    "regimes": [
+      {
+        "name": "inelastic",
+        "slope": -0.4562024633707571,
+        "r_squared": 0.9449651612744143,
+        "price_range": "lower",
+        "n_points": 9
+      },
+      {
+        "name": "inelastic",
+        "slope": -0.918469298902074,
+        "r_squared": 0.9915218127177416,
+        "price_range": "upper",
+        "n_points": 11
+      }
+    ],
+    "breakpoint_log_price": 4.433991296799045,
+    "breakpoint_price_approx": 84.26708152887372
+  }
+}

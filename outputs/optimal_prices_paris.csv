@@ -1,0 +1,7 @@
+segment_name,season,weekend,baseline_price,optimal_price,price_change_pct,baseline_occupancy,predicted_occupancy,occupancy_change_pct,baseline_annual_revenue,annual_revenue,revenue_lift,revenue_lift_pct,days_in_segment,elasticity_slope
+high_season_weekday,high,0,120.73,157.38,30.4,0.8598,0.6973,-18.9,9031.15,9547.61,516.46,5.7,87.0,-0.623
+high_season_weekend,high,1,142.96,214.44,50.0,0.8661,0.6588,-23.9,4457.3,5085.92,628.63,14.1,36.0,-0.479
+shoulder_season_weekday,shoulder,0,98.94,108.76,9.9,0.751,0.6888,-8.3,8024.61,8090.06,65.45,0.8,108.0,-0.835
+shoulder_season_weekend,shoulder,1,117.29,140.68,19.9,0.7792,0.668,-14.3,4021.22,4134.75,113.53,2.8,44.0,-0.716
+low_season_weekday,low,0,80.98,83.01,2.5,0.5767,0.5629,-2.4,3082.12,3083.93,1.82,0.1,66.0,-0.953
+low_season_weekend,low,1,95.77,107.58,12.3,0.6955,0.6268,-9.9,1598.62,1618.22,19.6,1.2,24.0,-0.802

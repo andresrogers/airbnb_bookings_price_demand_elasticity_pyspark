@@ -1,0 +1,83 @@
+{
+  "optimization_date": "2026-01-20T22:31:00.793152",
+  "target_city": "paris",
+  "property_profile": {
+    "capacity": 2,
+    "bedrooms": 1,
+    "cleanliness_rating": 9.0,
+    "guest_satisfaction": 94.0,
+    "room_type": "Entire Home/Apt",
+    "superhost": true
+  },
+  "baseline_performance": {
+    "annual_revenue": 30215.023111708186,
+    "weighted_avg_price": 107.23296280443432,
+    "avg_occupancy": 0.7546987964733072
+  },
+  "optimized_performance": {
+    "annual_revenue": 31560.49777978644,
+    "weighted_avg_price": 129.8862208923867,
+    "avg_occupancy": 0.6504197811608919
+  },
+  "revenue_lift": {
+    "absolute_eur": 1345.4746680782591,
+    "percentage": 4.452998970425721
+  },
+  "optimization_constraints": {
+    "price_range_tested": "\u00b150%",
+    "min_occupancy_threshold": "50%",
+    "weekend_premium": "110%",
+    "portfolio_price_change_limit": "\u00b150%"
+  },
+  "pricing_recommendations": [
+    {
+      "segment": "high_season_weekday",
+      "recommended_price": 157.38483969510128,
+      "price_change_vs_baseline": "+30.4%",
+      "expected_occupancy": "69.7%",
+      "expected_revenue_lift": "+5.7%"
+    },
+    {
+      "segment": "high_season_weekend",
+      "recommended_price": 214.43647199159918,
+      "price_change_vs_baseline": "+50.0%",
+      "expected_occupancy": "65.9%",
+      "expected_revenue_lift": "+14.1%"
+    },
+    {
+      "segment": "shoulder_season_weekday",
+      "recommended_price": 108.75860254083435,
+      "price_change_vs_baseline": "+9.9%",
+      "expected_occupancy": "68.9%",
+      "expected_revenue_lift": "+0.8%"
+    },
+    {
+      "segment": "shoulder_season_weekend",
+      "recommended_price": 140.67742522061718,
+      "price_change_vs_baseline": "+19.9%",
+      "expected_occupancy": "66.8%",
+      "expected_revenue_lift": "+2.8%"
+    },
+    {
+      "segment": "low_season_weekday",
+      "recommended_price": 83.01004734341922,
+      "price_change_vs_baseline": "+2.5%",
+      "expected_occupancy": "56.3%",
+      "expected_revenue_lift": "+0.1%"
+    },
+    {
+      "segment": "low_season_weekend",
+      "recommended_price": 107.57823632361776,
+      "price_change_vs_baseline": "+12.3%",
+      "expected_occupancy": "62.7%",
+      "expected_revenue_lift": "+1.2%"
+    }
+  ],
+  "key_insights": [
+    "Optimal annual revenue of $ 31,560.50 represents a +4.5% improvement over baseline",
+    "Highest revenue lift achieved in high_season_weekend segment (+14.1%)",
+    "Weekend pricing averages $ 154.23, 32.5% above weekday",
+    "All segments maintain occupancy above 50% threshold",
+    "Dynamic pricing strategy balances price increases with demand elasticity to maximize total revenue"
+  ]
+}
