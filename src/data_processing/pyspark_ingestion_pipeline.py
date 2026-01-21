@@ -79,21 +79,21 @@ class AirbnbSparkPipeline:
             "city_center_dist",
             "metro_dist",
             "bedrooms",
+            "days_in_period",
+            "days_booked",
+            "occupancy_rate",
         ]
         for c in numeric_double:
             if c in df.columns:
                 df = df.withColumn(c, F.col(c).cast(DoubleType()))
 
-        if "n_bookings" in df.columns:
-            df = df.withColumn("n_bookings", F.col("n_bookings").cast(IntegerType()))
-
         # 3) booleans -> 0/1
-        bool_cols = ["room_shared", "room_private", "host_is_superhost", "weekend"]
+        bool_cols = ["host_is_superhost", "weekend"]
         for c in bool_cols:
             if c in df.columns:
                 df = df.withColumn(c, self._cast_bool_to_int(c))
 
-        # multi/biz sometimes are already 0/1; normalize if needed
+        # multi/biz sometimes are already 0/1, sometimes strings
         for c in ["multi", "biz"]:
             if c in df.columns:
                 df = df.withColumn(c, F.col(c).cast(IntegerType()))
@@ -120,8 +120,6 @@ class AirbnbSparkPipeline:
         df.write.mode("overwrite").parquet(str(out_main))
         df.write.mode("overwrite").parquet(str(out_alias))
 
-        print("Saved:", out_main)
-        print("Saved (alias for notebooks):", out_alias)
         return df
 
 if __name__ == "__main__":

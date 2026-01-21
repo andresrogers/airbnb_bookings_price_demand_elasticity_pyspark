@@ -46,7 +46,7 @@ class SparkFeatureEngineer:
         return None
     
     @staticmethod
-    def encode_categoricals(df, categorical_cols: Optional[Iterable[str]] = None, drop_originals: bool = True):
+    def encode_categoricals(df, categorical_cols: Optional[Iterable[str]] = None, drop_originals: bool = False):
         """One-hot encode categorical columns using Spark SQL (big-data compatible).
         
         Args:
@@ -146,7 +146,7 @@ class SparkFeatureEngineer:
                 .when(F.col('person_capacity') == 2, F.lit('2'))
                 .when(F.col('person_capacity') == 3, F.lit('3'))
                 .when(F.col('person_capacity') == 4, F.lit('4'))
-                .otherwise(F.lit('5')),
+                .otherwise(F.lit('5+')),
             )
 
         # 5) Quality score: weighted composite of satisfaction, cleanliness, proximity
@@ -278,7 +278,7 @@ class SparkFeatureEngineer:
         from pyspark.sql import functions as F
 
         if segment_cols is None:
-            segment_cols = [c for c in ['city', 'weekend'] if c in df.columns]
+            segment_cols = [c for c in ['city', 'season', 'weekend'] if c in df.columns]
 
         price_col = SparkFeatureEngineer._price_col(df)
         SparkFeatureEngineer._ensure_cols(df, list(segment_cols) + [price_col])
@@ -348,19 +348,19 @@ class SparkFeatureEngineer:
         
         out = df
         
-        # 1) Encode categoricals (Spark native, big-data style)
+        # 1) Add listing-level engineered features (keeps weekend for segmentation)
+        out = SparkFeatureEngineer.add_listing_features(out)
+        
+        # 2) Encode categoricals (Spark native, big-data style)
         # Keep originals for segmentation downstream (drop_originals=False)
         if encode_categoricals:
-            cat_cols_to_encode = [c for c in ['room_type', 'city'] if c in out.columns]
+            cat_cols_to_encode = [c for c in ['room_type', 'city', 'season', 'capacity_bin'] if c in out.columns]
             if cat_cols_to_encode:
                 out = SparkFeatureEngineer.encode_categoricals(out, cat_cols_to_encode, drop_originals=False)
         
-        # 2) Add listing-level engineered features (keeps weekend for segmentation)
-        out = SparkFeatureEngineer.add_listing_features(out)
-        
-        # 3) Add market competition features (uses original city/weekend columns)
+        # 3) Add market competition features (uses original city/weekend/season columns)
         if segment_cols is None:
-            segment_cols = [c for c in ['city', 'weekend'] if c in df.columns]
+            segment_cols = [c for c in ['city', 'weekend', 'season'] if c in df.columns]
         
         out = SparkFeatureEngineer.add_market_competition_features(out, segment_cols)
         
@@ -368,172 +368,172 @@ class SparkFeatureEngineer:
         segment_df = SparkFeatureEngineer.build_segment_dataset(out, segment_cols)
         
         # 5) Drop originals now that we're done with segmentation
-        cols_to_drop = [c for c in ['room_type','city','weekend'] if c in out.columns]
+        cols_to_drop = [c for c in ['room_type'] if c in out.columns]
         if cols_to_drop:
             out = out.drop(*cols_to_drop)
         
         return out, segment_df
 
 
-class FeatureEngineer:
-    """Pandas-based feature engineering for downstream modeling pipelines.
+# class FeatureEngineer:
+#     """Pandas-based feature engineering for downstream modeling pipelines.
     
-    Use this for final train/val/test preparation after Spark feature generation.
-    Handles scaling, categorical encoding, and train/val/test splits with scikit-learn utilities.
-    """
+#     Use this for final train/val/test preparation after Spark feature generation.
+#     Handles scaling, categorical encoding, and train/val/test splits with scikit-learn utilities.
+#     """
 
-    def __init__(self):
-        self.scalers: Dict[str, StandardScaler] = {}
-        self.encoders: Dict[str, LabelEncoder] = {}
-        self.feature_columns: List[str] = []
-        self.categorical_cols: List[str] = []
-        self.numeric_cols: List[str] = []
+#     def __init__(self):
+#         self.scalers: Dict[str, StandardScaler] = {}
+#         self.encoders: Dict[str, LabelEncoder] = {}
+#         self.feature_columns: List[str] = []
+#         self.categorical_cols: List[str] = []
+#         self.numeric_cols: List[str] = []
 
-    def encode_categoricals(self, X: pd.DataFrame, categorical_cols: Optional[List[str]] = None, fit: bool = True) -> pd.DataFrame:
-        """One-hot encode categorical columns.
+#     def encode_categoricals(self, X: pd.DataFrame, categorical_cols: Optional[List[str]] = None, fit: bool = True) -> pd.DataFrame:
+#         """One-hot encode categorical columns.
         
-        Args:
-            X: input dataframe
-            categorical_cols: columns to encode; if None, auto-detects object dtype columns
-            fit: if True, learn encoder params; if False, apply existing encoder
+#         Args:
+#             X: input dataframe
+#             categorical_cols: columns to encode; if None, auto-detects object dtype columns
+#             fit: if True, learn encoder params; if False, apply existing encoder
         
-        Returns:
-            DataFrame with one-hot encoded categoricals (original columns dropped)
-        """
-        X = X.copy()
+#         Returns:
+#             DataFrame with one-hot encoded categoricals (original columns dropped)
+#         """
+#         X = X.copy()
         
-        if categorical_cols is None:
-            categorical_cols = [c for c in X.columns if X[c].dtype == 'object']
+#         if categorical_cols is None:
+#             categorical_cols = [c for c in X.columns if X[c].dtype == 'object']
         
-        categorical_cols = [c for c in categorical_cols if c in X.columns]
+#         categorical_cols = [c for c in categorical_cols if c in X.columns]
         
-        if not categorical_cols:
-            return X
+#         if not categorical_cols:
+#             return X
         
-        if fit:
-            # One-hot encode and store the resulting column names
-            X_encoded = pd.get_dummies(X[categorical_cols], prefix='cat', drop_first=False)
-            self.categorical_cols = categorical_cols
-            self.encoders['categorical_columns'] = X_encoded.columns.tolist()
-            X = X.drop(columns=categorical_cols)
-            X = pd.concat([X, X_encoded], axis=1)
-        else:
-            if 'categorical_columns' not in self.encoders:
-                raise RuntimeError("Categorical encoder not fitted. Call encode_categoricals with fit=True first.")
-            # One-hot encode with the same columns as training
-            X_encoded = pd.get_dummies(X[categorical_cols], prefix='cat', drop_first=False)
-            # Align with training columns (handle unseen categories)
-            expected_cols = self.encoders['categorical_columns']
-            for col in expected_cols:
-                if col not in X_encoded.columns:
-                    X_encoded[col] = 0
-            X_encoded = X_encoded[[col for col in expected_cols if col in X_encoded.columns]]
-            X = X.drop(columns=categorical_cols)
-            X = pd.concat([X, X_encoded], axis=1)
+#         if fit:
+#             # One-hot encode and store the resulting column names
+#             X_encoded = pd.get_dummies(X[categorical_cols], prefix='cat', drop_first=False)
+#             self.categorical_cols = categorical_cols
+#             self.encoders['categorical_columns'] = X_encoded.columns.tolist()
+#             X = X.drop(columns=categorical_cols)
+#             X = pd.concat([X, X_encoded], axis=1)
+#         else:
+#             if 'categorical_columns' not in self.encoders:
+#                 raise RuntimeError("Categorical encoder not fitted. Call encode_categoricals with fit=True first.")
+#             # One-hot encode with the same columns as training
+#             X_encoded = pd.get_dummies(X[categorical_cols], prefix='cat', drop_first=False)
+#             # Align with training columns (handle unseen categories)
+#             expected_cols = self.encoders['categorical_columns']
+#             for col in expected_cols:
+#                 if col not in X_encoded.columns:
+#                     X_encoded[col] = 0
+#             X_encoded = X_encoded[[col for col in expected_cols if col in X_encoded.columns]]
+#             X = X.drop(columns=categorical_cols)
+#             X = pd.concat([X, X_encoded], axis=1)
         
-        return X
+#         return X
 
-    def scale_features(self, X: pd.DataFrame, feature_cols: Optional[List[str]] = None, fit: bool = True) -> pd.DataFrame:
-        """Standardize numeric features to mean=0, std=1.
+#     def scale_features(self, X: pd.DataFrame, feature_cols: Optional[List[str]] = None, fit: bool = True) -> pd.DataFrame:
+#         """Standardize numeric features to mean=0, std=1.
         
-        Args:
-            X: input dataframe
-            feature_cols: columns to scale; if None, uses all numeric columns
-            fit: if True, learn scaler params; if False, apply existing scaler
+#         Args:
+#             X: input dataframe
+#             feature_cols: columns to scale; if None, uses all numeric columns
+#             fit: if True, learn scaler params; if False, apply existing scaler
         
-        Returns:
-            DataFrame with scaled columns
-        """
-        X = X.copy()
+#         Returns:
+#             DataFrame with scaled columns
+#         """
+#         X = X.copy()
         
-        if feature_cols is None:
-            feature_cols = [c for c in X.columns if X[c].dtype in ['int64', 'float64']]
+#         if feature_cols is None:
+#             feature_cols = [c for c in X.columns if X[c].dtype in ['int64', 'float64']]
         
-        feature_cols = [c for c in feature_cols if c in X.columns]
+#         feature_cols = [c for c in feature_cols if c in X.columns]
         
-        if fit:
-            self.scalers['numeric'] = StandardScaler()
-            X[feature_cols] = self.scalers['numeric'].fit_transform(X[feature_cols])
-            self.numeric_cols = feature_cols
-        else:
-            if 'numeric' not in self.scalers:
-                raise RuntimeError("Scaler not fitted. Call scale_features with fit=True first.")
-            X[feature_cols] = self.scalers['numeric'].transform(X[feature_cols])
+#         if fit:
+#             self.scalers['numeric'] = StandardScaler()
+#             X[feature_cols] = self.scalers['numeric'].fit_transform(X[feature_cols])
+#             self.numeric_cols = feature_cols
+#         else:
+#             if 'numeric' not in self.scalers:
+#                 raise RuntimeError("Scaler not fitted. Call scale_features with fit=True first.")
+#             X[feature_cols] = self.scalers['numeric'].transform(X[feature_cols])
         
-        return X
+#         return X
 
-    def prepare_datasets(
-        self,
-        X: pd.DataFrame,
-        y: pd.Series,
-        test_size: float = 0.2,
-        val_size: float = 0.1,
-        random_state: int = 42,
-    ) -> Tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame, pd.Series, pd.Series, pd.Series]:
-        """Split features and target into train/val/test.
+#     def prepare_datasets(
+#         self,
+#         X: pd.DataFrame,
+#         y: pd.Series,
+#         test_size: float = 0.2,
+#         val_size: float = 0.1,
+#         random_state: int = 42,
+#     ) -> Tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame, pd.Series, pd.Series, pd.Series]:
+#         """Split features and target into train/val/test.
         
-        Args:
-            X: feature matrix (already encoded/scaled)
-            y: target vector
-            test_size: fraction for test split (0.2 = 20%)
-            val_size: fraction of remaining for validation (applied to 80%)
-            random_state: seed for reproducibility
+#         Args:
+#             X: feature matrix (already encoded/scaled)
+#             y: target vector
+#             test_size: fraction for test split (0.2 = 20%)
+#             val_size: fraction of remaining for validation (applied to 80%)
+#             random_state: seed for reproducibility
         
-        Returns:
-            (X_train, X_val, X_test, y_train, y_val, y_test)
-        """
-        self.feature_columns = X.columns.tolist()
+#         Returns:
+#             (X_train, X_val, X_test, y_train, y_val, y_test)
+#         """
+#         self.feature_columns = X.columns.tolist()
 
-        # train/test split
-        X_temp, X_test, y_temp, y_test = train_test_split(
-            X, y, test_size=test_size, random_state=random_state
-        )
+#         # train/test split
+#         X_temp, X_test, y_temp, y_test = train_test_split(
+#             X, y, test_size=test_size, random_state=random_state
+#         )
 
-        # train/val split from remainder
-        val_frac = val_size / (1.0 - test_size)
-        X_train, X_val, y_train, y_val = train_test_split(
-            X_temp, y_temp, test_size=val_frac, random_state=random_state
-        )
+#         # train/val split from remainder
+#         val_frac = val_size / (1.0 - test_size)
+#         X_train, X_val, y_train, y_val = train_test_split(
+#             X_temp, y_temp, test_size=val_frac, random_state=random_state
+#         )
 
-        return X_train, X_val, X_test, y_train, y_val, y_test
+#         return X_train, X_val, X_test, y_train, y_val, y_test
 
-    def run_pipeline(
-        self, df: pd.DataFrame, target_col: str = 'listing_price'
-    ) -> Tuple[Tuple, pd.DataFrame]:
-        """Execute full pandas feature pipeline: encode categoricals → scale → split.
+#     def run_pipeline(
+#         self, df: pd.DataFrame, target_col: str = 'listing_price'
+#     ) -> Tuple[Tuple, pd.DataFrame]:
+#         """Execute full pandas feature pipeline: encode categoricals → scale → split.
         
-        Args:
-            df: input dataframe (should be output from Spark pipeline)
-            target_col: column name for prediction target
+#         Args:
+#             df: input dataframe (should be output from Spark pipeline)
+#             target_col: column name for prediction target
         
-        Returns:
-            ((X_train, X_val, X_test, y_train, y_val, y_test), X_processed)
-        """
-        print("Encoding categorical features...")
-        X = df.drop(columns=[target_col], errors='ignore')
-        y = df[target_col]
-        X_encoded = self.encode_categoricals(X, fit=True)
+#         Returns:
+#             ((X_train, X_val, X_test, y_train, y_val, y_test), X_processed)
+#         """
+#         print("Encoding categorical features...")
+#         X = df.drop(columns=[target_col], errors='ignore')
+#         y = df[target_col]
+#         X_encoded = self.encode_categoricals(X, fit=True)
 
-        print("Scaling numeric features...")
-        X_scaled = self.scale_features(X_encoded, fit=True)
+#         print("Scaling numeric features...")
+#         X_scaled = self.scale_features(X_encoded, fit=True)
 
-        print("Preparing train/val/test split...")
-        datasets = self.prepare_datasets(X_scaled, y)
+#         print("Preparing train/val/test split...")
+#         datasets = self.prepare_datasets(X_scaled, y)
 
-        print(f"Feature columns: {len(self.feature_columns)}")
-        print(f"  Categorical cols (one-hot): {len([c for c in self.feature_columns if c.startswith('cat_')])}")
-        print(f"  Numeric cols (scaled): {len(self.numeric_cols)}")
-        print(
-            f"Train size: {len(datasets[0])}, "
-            f"Val size: {len(datasets[1])}, "
-            f"Test size: {len(datasets[2])}"
-        )
+#         print(f"Feature columns: {len(self.feature_columns)}")
+#         print(f"  Categorical cols (one-hot): {len([c for c in self.feature_columns if c.startswith('cat_')])}")
+#         print(f"  Numeric cols (scaled): {len(self.numeric_cols)}")
+#         print(
+#             f"Train size: {len(datasets[0])}, "
+#             f"Val size: {len(datasets[1])}, "
+#             f"Test size: {len(datasets[2])}"
+#         )
 
-        return datasets, X_scaled
+#         return datasets, X_scaled
 
 
 
-if __name__ == "__main__":
-    df = pd.read_parquet("data/processed/consolidated.parquet")
-    engineer = FeatureEngineer()
-    datasets, processed_df = engineer.run_pipeline(df)
+# if __name__ == "__main__":
+#     df = pd.read_parquet("data/processed/consolidated.parquet")
+#     engineer = FeatureEngineer()
+#     datasets, processed_df = engineer.run_pipeline(df)
